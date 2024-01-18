@@ -37,7 +37,7 @@ export default function LoginForm() {
             
             <Form.Item 
             name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            rules={[{ required: true, message: 'Введите вашу почту' }]}
             >
             <Input 
                 placeholder="dinrinx@icloud.com" 
@@ -46,7 +46,7 @@ export default function LoginForm() {
             </Form.Item>
             <Form.Item 
             name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+            rules={[{ required: true, message: 'Введите ваш пароль' }]}
             >
             <Input.Password
                 placeholder="12345677"

@@ -3,9 +3,11 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 import styles from './page.module.css'
 import { Flex, List } from 'antd'
+import { useEffect, useState } from 'react'
+
 import LoginForm from '@/widgets/loginForm'
 import CommentsSection from '@/widgets/commentsSection'
-import { useEffect, useState } from 'react'
+import NewProposalForm from '@/widgets/newProposalForm'
 
 
 // class FlyingObject extends Component {
@@ -72,7 +74,6 @@ export default function LoginPage() {
 
     setItems([...items, ...data])
 
-    console.log("loaded")
     setLoading(false)
   }
   useEffect(() => {
@@ -120,6 +121,10 @@ export default function LoginPage() {
             />
           </InfiniteScroll>
         </div>
+      </Flex>
+      <div style={{height: "0.25rem", width: "100%", backgroundColor: "#222"}}></div>
+      <Flex vertical align='center' justify='center' style={{ width: "100vw", minHeight: "100vh", backgroundColor: "#F6FAF7" }}>
+        <NewProposalForm/>
       </Flex>
     </>
   )
