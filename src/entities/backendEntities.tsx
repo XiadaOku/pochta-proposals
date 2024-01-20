@@ -3,6 +3,11 @@ export type Category = {
   "name": string
 }
 
+export type Division = {
+  "id": number,
+  "name": string
+}
+
 export type Job = {
   "id": number,
   "name": string,

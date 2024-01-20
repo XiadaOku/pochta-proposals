@@ -9,10 +9,11 @@ import getHeads from '@/features/heads'
 import HeadsModal from './headsModal'
 import { User } from '@/entities/backendEntities'
 import getCategories from '@/features/categories'
+import getDivisions from '@/features/divisions'
 
 
 export default function NewProposalForm() {
-    const userToken = "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NzM1ODk5LCJpYXQiOjE3MDU2NDk0OTksImp0aSI6IjNiMTVmM2JhOWJmODQyNDU5M2VhYTU4MDk3N2QwZTU3IiwidXNlcl9pZCI6MX0.qHSVgwSC_RHz5b77R0bXvFsIA_mn-fV7x72d8E-93_M"
+    const userToken = "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODQwMTU2LCJpYXQiOjE3MDU3NTM3NTYsImp0aSI6IjE0Y2MwMDE1MjU3NjQzMDZhMDg0NGU2NDQxZTZhNDRiIiwidXNlcl9pZCI6MX0.s9sH6pJFgDIedlSYrj0GGHBbMjXDRbTRzDsL26TSznM"
     
     
     const inputIds = [
@@ -66,6 +67,7 @@ export default function NewProposalForm() {
     </Space>
 
     const categories = getCategories()
+    const divisions = getDivisions(userToken)
 
     return (
         <>
@@ -220,27 +222,10 @@ export default function NewProposalForm() {
                                 }}>
                                     <Space direction='vertical'>
                                         {
-                                            getCategories().map((item) => (
+                                            divisions.map((item) => (
                                                 <Checkbox value={item.id} key={item.id}>{item.name}</Checkbox>
                                             ))
                                         }
-            
-                                        <Checkbox value={12}>
-                                            <Space align='center'>
-                                                Другое
-                                                {relatedDivisions.includes(12) &&
-                                                    <Form.Item
-                                                        noStyle
-                                                        name={inputIds[7]}
-                                                        rules={[{ required: true, message: "Введите смежные отделы" }]}
-                                                    >
-                                                        <Input
-                                                            onChange={(event) => (setInputData((data: any) => ( { ...data, [event.target.id]: event.target.value } )))}
-                                                        />
-                                                    </Form.Item>
-                                                }
-                                            </Space>
-                                        </Checkbox>
                                     </Space>
                                 </Checkbox.Group>
                             </Form.Item>
