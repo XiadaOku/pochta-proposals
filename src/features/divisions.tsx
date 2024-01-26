@@ -16,7 +16,5 @@ export default function getDivisions(userToken: string): Division[] {
         })
     })
 
-    console.log(response)
-
     return response
 }
